@@ -18,6 +18,17 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
+    @autoreleasepool {
+        NSMutableString* s1  = [[NSMutableString alloc] init];
+        NSLog(@"Retain count is %ld", CFGetRetainCount((__bridge CFTypeRef)s1));
+
+        
+    }
+}
+
+-(void) dealloc
+{
+    NSLog(@"Dealloc Called!");
 }
 
 - (void)didReceiveMemoryWarning

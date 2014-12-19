@@ -21,8 +21,11 @@
     @autoreleasepool {
         NSMutableString* s1  = [[NSMutableString alloc] init];
         NSLog(@"Retain count is %ld", CFGetRetainCount((__bridge CFTypeRef)s1));
-
         
+        id obj = [[NSObject alloc] init];
+        void *p = (__bridge_retained void *)obj;
+        
+        NSLog(@"class=%@", [(__bridge id)p class]);
     }
 }
 
